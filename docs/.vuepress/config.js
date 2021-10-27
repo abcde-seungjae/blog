@@ -5,7 +5,15 @@ module.exports = {
     nav: [{ text: "Github", link: "https://github.com/seungjae0202" }],
     sidebar: getSidebarArr()
   },
-  base: "/blog/"
+  base: "/blog/",
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'G-WXEGTKYFF1' // UA-00000000-0
+      }
+    ]
+  ]
 };
 
 function getSidebarArr() {
