@@ -7,19 +7,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Install and Build
-      run: |
-        npm install
-        npm run docs:build
-
     - name: Deploy Build Files
+      uses: jenkey2011/vuepress-deploy@1.0.1
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} 
-      run: |
-        cd .vuepress/dist
-        git config --global user.email "e2ssue@gmail.com"
-        git config --global user.name "2ssue"
-        git init
-        git add -A
-        git commit -m 'deploy with vuepress'
-        git push -f https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_SCRIPT: npm install && npm run docs:build
+        TARGET_BRANCH: gh-pages
+        BUILD_DIR: docs/.vuepress/dist
