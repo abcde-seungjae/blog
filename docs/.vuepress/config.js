@@ -8,12 +8,12 @@ module.exports = {
   base: "/blog/",
   plugins: [
     [
-      '@vuepress/google-analytics',
+      '@vuepress/plugin-google-analytics',
       {
-        'ga': 'G-WXEGTKYFF1' // UA-00000000-0
-      }
-    ]
-  ]
+        id: 'G-T5JM5FCXEX',
+      },
+    ],
+  ],
 };
 
 function getSidebarArr() {
